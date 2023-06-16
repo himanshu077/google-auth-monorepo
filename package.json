@@ -1,0 +1,25 @@
+{
+  "name": "@demo/monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "app"
+  ],
+  "scripts": {
+    "start": "npm-run-all -s build-components start-app",
+    "build": "npm-run-all -s build-components build-app",
+    "preview": "npm-run-all -s build-components preview-app",
+    "build-storybook": "cd packages/components && yarn build-storybook",
+    "storybook": "cd packages/components && yarn storybook",
+    "build-components": "cd packages/components && yarn build",
+    "watch-components": "cd packages/components && yarn build-watch",
+    "start-app": "cd app && yarn start",
+    "build-app": "cd app && yarn build",
+    "preview-app": "cd app && yarn preview"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5"
+  }
+}
